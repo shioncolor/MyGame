@@ -59,22 +59,22 @@ public class Manager : MonoBehaviour
                 break;
 
             case 2:
-                text = "test";
+                text = "test2";
                 GameName.text = text;
                 break;
 
             case 3:
-                text = "test";
+                text = "test3";
                 GameName.text = text;
                 break;
 
             case 4:
-                text = "test";
+                text = "test4";
                 GameName.text = text;
                 break;
 
             case 5:
-                text = "test";
+                text = "test5";
                 GameName.text = text;
                 break;
         }

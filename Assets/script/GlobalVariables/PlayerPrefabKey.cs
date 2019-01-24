@@ -7,7 +7,9 @@ public class PlayerPrefabKey : MonoBehaviour
     private static string[] SeveScoreKeY =
     {
            "RockPaperScissors",
-            "Test"
+            "Test",
+            "Test2",
+            "Test3"
          };
 
     public static string GetKey(int num)

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockPaperScissorsButton : MonoBehaviour {
+public class GameSelectButton : MonoBehaviour {
 
-    public void ButtonPush()
+    public void RockPaperScissors()
     {
         GameMode.SetGameType(GameMode.GameType.RockPaperScissors);
         SceneChang.Change(SceneChang.SceneState.RockPaperScissors);

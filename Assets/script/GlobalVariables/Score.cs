@@ -49,7 +49,12 @@ public class Score : MonoBehaviour
     //不正解率
     public static float GetNotAnswerRate()
     {
-         return Mathf.Round(NotAnswer / (Answer + NotAnswer) * 100);
+        if (NotAnswer / (Answer + NotAnswer) * 100 > -1)
+        {
+
+            return Mathf.Round(NotAnswer / (Answer + NotAnswer) * 100);
+        }
+        return 0;
     }
 
     //回答時間
@@ -68,6 +73,19 @@ public class Score : MonoBehaviour
         }
 
         return 0; 
+    }
+
+    private static float higeScore;
+    public static void SetHigeScore(float value)
+    {
+        higeScore = value;
+    }
+    public static bool HigeScore(float newScore)
+    {
+        if (higeScore <= newScore)
+            return true;
+
+        return false;
     }
 
     public static void Reset()

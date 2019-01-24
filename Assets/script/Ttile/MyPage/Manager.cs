@@ -15,7 +15,7 @@ public class Manager : MonoBehaviour
     [SerializeField]
     private Text Averagetime;
     [SerializeField]
-    private Text GameName;
+    private  Text GameName;
     [SerializeField]
     private Image GageBlue;
     [SerializeField]
@@ -24,9 +24,10 @@ public class Manager : MonoBehaviour
     private float time = 2.0f;
     private const int ScoreCount = 5;
 
-    public static float[] ScoreArray = new float[ScoreCount];
+    public static float[] ScoreArray = new float[ScoreCount];//読み込んだデータ
     public static int Key;//読み込んだゲームキーの番号
     public bool flag = true;//表示するデータが更新されたかどうか
+    public static string text;//読み込んだゲームの種類の名前
 
     void Start()
     {
@@ -47,28 +48,34 @@ public class Manager : MonoBehaviour
         switch (Key)
         {
             case 0:
-                GameName.text = "後出しじゃんけん";
+                text = "後出しじゃんけん";
+                GameName.text = text;
                 flag = true;
                 break;
 
             case 1:
-                GameName.text = "Test";
+                text = "test";
+                GameName.text = text;
                 break;
 
             case 2:
-                GameName.text = "Test";
+                text = "test";
+                GameName.text = text;
                 break;
 
             case 3:
-                GameName.text = "Test";
+                text = "test";
+                GameName.text = text;
                 break;
 
             case 4:
-                GameName.text = "Test";
+                text = "test";
+                GameName.text = text;
                 break;
 
             case 5:
-                GameName.text = "Test";
+                text = "test";
+                GameName.text = text;
                 break;
         }
         answer.text = ScoreArray[0].ToString();

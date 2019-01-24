@@ -24,7 +24,7 @@ public class ResultManager : MonoBehaviour
     private float time = 2.0f;
     
     private const int ScoreCount = 5;
-    float[] ScoreArray = new float[ScoreCount];
+    float[] ScoreArray = new float[ScoreCount];//保存するデータ
 
     int Key;
 

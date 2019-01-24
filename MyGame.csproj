@@ -74,6 +74,9 @@
     <Reference Include="UnityEngine.VR">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
@@ -85,10 +88,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\script\MainGame\MainGameManager.cs" />
-    <Compile Include="Assets\script\MainGame\Tutorial.cs" />
-    <Compile Include="Assets\script\SceneChang.cs" />
-    <Compile Include="Assets\script\Title\TitleManager.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\script\GlobalVariables\DontDestroy.cs" />
+    <Compile Include="Assets\script\GlobalVariables\GlobalVariables.cs" />
+    <Compile Include="Assets\script\GlobalVariables\Glovalobj.cs" />
+    <Compile Include="Assets\script\GlobalVariables\ReturnButton.cs" />
+    <Compile Include="Assets\script\GlobalVariables\SceneChang.cs" />
+    <Compile Include="Assets\script\GlobalVariables\Score.cs" />
+    <Compile Include="Assets\script\Glovalobj.cs" />
+    <Compile Include="Assets\script\Result\BackButton.cs" />
+    <Compile Include="Assets\script\Result\ResultManager.cs" />
+    <Compile Include="Assets\script\Result\RetryButton.cs" />
+    <Compile Include="Assets\script\Result\ShareButton.cs" />
+    <Compile Include="Assets\script\Result\UIGage.cs" />
+    <Compile Include="Assets\script\Ttile\ZyannkenButton.cs" />
+    <Compile Include="Assets\script\zyanken\GameOver\GameOver.cs" />
+    <Compile Include="Assets\script\zyanken\GlobalVariables\ActiveManager.cs" />
+    <Compile Include="Assets\script\zyanken\GlobalVariables\Touch.cs" />
+    <Compile Include="Assets\script\zyanken\MainGame\EnemyMove.cs" />
+    <Compile Include="Assets\script\zyanken\MainGame\Judge.cs" />
+    <Compile Include="Assets\script\zyanken\MainGame\MainGameManager.cs" />
+    <Compile Include="Assets\script\zyanken\MainGame\PlayerMove.cs" />
+    <Compile Include="Assets\script\zyanken\Title\TitleManager.cs" />
+    <Compile Include="Assets\script\zyanken\Tutorial\TutorialButton.cs" />
+    <Compile Include="Assets\script\zyanken\Tutorial\TutorialManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Demigiant\DOTween\DOTween.XML" />
+    <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
+    <None Include="Assets\Demigiant\DOTween\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

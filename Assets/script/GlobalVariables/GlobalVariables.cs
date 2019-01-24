@@ -8,7 +8,7 @@ namespace SceneGlobalVariables
     {
         public ActiveManager activeManager;
         public Touch touch;
-        public Score score;
+        public SceneChang sceneChang;
 
         private static GlobalVariables instance;
         public static GlobalVariables Instance

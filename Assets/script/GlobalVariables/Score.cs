@@ -2,43 +2,78 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Score : MonoBehaviour {
+public class Score : MonoBehaviour
+{
 
-    //正解回数
-    private int answer;
-    public int Answer
+    void Start()
     {
-        get { return this.answer; }
-        set { this.answer += value; }
+        
     }
 
-    //不正解回数
-    private int NotAnswer;
-    public int notAnswer
+    //正解回数
+    private static float Answer;
+    public static void SetAnswer(float value)
     {
-        get { return this.NotAnswer; }
-        set { this.NotAnswer += value; }
+        Answer += value;
+    }
+    public static float GetAnswer()
+    {
+        return Answer;
+
+    }
+
+
+    //不正解回数
+    private static float NotAnswer;
+    public static void SetNotAnswer(float value)
+    {
+        NotAnswer += value;
+    }
+    public static float GetNotAnswer()
+    {
+        return NotAnswer;
+
     }
 
     //正解率
-    private float answerRate;
-    public float AnswerRate
+    public static float GetAnswerRate()
     {
-        get { return answer / (answer + NotAnswer)*100; }
+        if (Answer / (Answer + NotAnswer) * 100 > -1)
+        {
+            return Mathf.Round(Answer / (Answer + NotAnswer) * 100);
+        }
+
+        return 0;
+    }
+
+    //不正解率
+    public static float GetNotAnswerRate()
+    {
+         return Mathf.Round(NotAnswer / (Answer + NotAnswer) * 100);
     }
 
     //回答時間
-    private float answerTime;
-    public float AnswerTime
+    private static float AnswerTime;
+    public static void SetAnswerTime(float value)
     {
-        set { this.answerTime = value; }
+        AnswerTime = value; 
     }
 
     //平均回答時間
-    public float AverageTime
+    public static float GetAverageTime()
     {
-        get { return answerTime / (answer + NotAnswer); }
+        if (AnswerTime / Answer > 0.01)
+        {
+            return AnswerTime / Answer;
+        }
+
+        return 0; 
     }
 
-    
+    public static void Reset()
+    {
+        Answer = 0.0f;
+        NotAnswer = 0.0f;
+        AnswerTime = 0.0f;
+    }
 }

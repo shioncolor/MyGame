@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class ResultManager : MonoBehaviour
 {
-
     [SerializeField]
     private Text answer;
     [SerializeField]
@@ -23,26 +22,39 @@ public class ResultManager : MonoBehaviour
     [SerializeField]
     private Image GageRed;
     private float time = 2.0f;
+    
+    private const int ScoreCount = 5;
+    float[] ScoreArray = new float[ScoreCount];
+
+    int Key;
 
     // Use this for initialization
     void Start()
     {
-        SetGameName();
-        answer.text = Score.GetAnswer().ToString();
-        Notanswer.text = Score.GetNotAnswer().ToString();
-        Answerrate.text = Score.GetAnswerRate().ToString() + "%";
-        Averagetime.text = Score.GetAverageTime().ToString("f2") + "s";
         GageBlue.fillAmount = 0;
         GageRed.fillAmount = 0;
 
+        //スコアの取得
+        GetScore();
+
+        //スコアの表示
+        SetGameName();
+        DisplayData();
+
+        if (Score.HigeScore(ScoreArray[0]))
+        {
+            //スコアの保存
+            PlayerPrefsX.SetFloatArray(PlayerPrefabKey.GetKey(Key), ScoreArray);
+            Score.SetHigeScore(ScoreArray[0]);
+        }
     }
     // Update is called once per frame
     void Update()
     {
-        if (Score.GetAnswerRate() / 100 > GageBlue.fillAmount)
+        if (ScoreArray[2] / 100 > GageBlue.fillAmount)
             GageBlue.fillAmount += 1.0f / time * Time.deltaTime;
 
-        if (Score.GetNotAnswerRate() / 100 > GageRed.fillAmount)
+        if (ScoreArray[4] / 100 > GageRed.fillAmount)
             GageRed.fillAmount += 1.0f / time * Time.deltaTime;
     }
 
@@ -52,7 +64,25 @@ public class ResultManager : MonoBehaviour
         {
             case GameMode.GameType.RockPaperScissors:
                 GameName.text = "後出しじゃんけん";
+                Key = (int)GameMode.GetGameType();
                 break;
         }
+    }
+
+    private void DisplayData()
+    {
+        answer.text = ScoreArray[0].ToString();
+        Notanswer.text = ScoreArray[1].ToString();
+        Answerrate.text = ScoreArray[2].ToString() + "%";
+        Averagetime.text = ScoreArray[3].ToString("f2") + "s";
+    }
+
+    private void GetScore()
+    {
+        ScoreArray[0] = Score.GetAnswer();
+        ScoreArray[1] = Score.GetNotAnswer();
+        ScoreArray[2] = Score.GetAnswerRate();
+        ScoreArray[3] = Score.GetAverageTime();
+        ScoreArray[4] = Score.GetNotAnswerRate();
     }
 }

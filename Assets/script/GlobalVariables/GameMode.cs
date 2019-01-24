@@ -6,7 +6,7 @@ public class GameMode : MonoBehaviour {
 
 	public enum GameType
     {
-        RockPaperScissors
+        RockPaperScissors=0
     }
 
     private static GameType gameType;

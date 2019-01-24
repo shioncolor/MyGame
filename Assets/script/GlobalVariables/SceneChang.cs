@@ -11,16 +11,12 @@ public class SceneChang : MonoBehaviour
     public enum SceneState
     {
         Title = 0,
-        Zyankenn,
+        RockPaperScissors,
         Result,
     }
 
-    void start()
-    {
 
-    }
-
-    public void Change(SceneState sceneState)
+    public static void Change(SceneState sceneState)
     {
         switch (sceneState)
         {
@@ -28,9 +24,9 @@ public class SceneChang : MonoBehaviour
                 SceneManager.LoadScene("Title");
                 break;
 
-            
-            case SceneState.Zyankenn:
-                SceneManager.LoadScene("zyannken");
+
+            case SceneState.RockPaperScissors:
+                SceneManager.LoadScene("RockPaperScissors");
                 break;
 
             case SceneState.Result:

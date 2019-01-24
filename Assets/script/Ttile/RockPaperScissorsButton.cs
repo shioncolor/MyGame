@@ -6,6 +6,7 @@ public class RockPaperScissorsButton : MonoBehaviour {
 
     public void ButtonPush()
     {
+        GameMode.SetGameType(GameMode.GameType.RockPaperScissors);
         SceneChang.Change(SceneChang.SceneState.RockPaperScissors);
     }
 }

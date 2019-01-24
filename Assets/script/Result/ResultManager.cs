@@ -16,17 +16,18 @@ public class ResultManager : MonoBehaviour
     private Text Answerrate;
     [SerializeField]
     private Text Averagetime;
-
+    [SerializeField]
+    private Text GameName;
     [SerializeField]
     private Image GageBlue;
     [SerializeField]
     private Image GageRed;
     private float time = 2.0f;
 
-    private UIGage Gage;
     // Use this for initialization
     void Start()
     {
+        SetGameName();
         answer.text = Score.GetAnswer().ToString();
         Notanswer.text = Score.GetNotAnswer().ToString();
         Answerrate.text = Score.GetAnswerRate().ToString() + "%";
@@ -43,5 +44,15 @@ public class ResultManager : MonoBehaviour
 
         if (Score.GetNotAnswerRate() / 100 > GageRed.fillAmount)
             GageRed.fillAmount += 1.0f / time * Time.deltaTime;
+    }
+
+    private void SetGameName()
+    {
+        switch (GameMode.GetGameType())
+        {
+            case GameMode.GameType.RockPaperScissors:
+                GameName.text = "後出しじゃんけん";
+                break;
+        }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
 using UnityEngine;
+using System;
 
-public class Score : MonoBehaviour
-{
+public class Score
+{ 
 
     void Start()
     {
@@ -75,14 +77,17 @@ public class Score : MonoBehaviour
         return 0; 
     }
 
-    private static float higeScore;
-    public static void SetHigeScore(float value)
+    private static  int Key;//ゲームモードのint
+    private static float[] HighScore = new float[Enum.GetNames(typeof(GameMode.GameType)).Length];
+    public static void SetHighScore(float value)
     {
-        higeScore = value;
+        Key = (int)GameMode.GetGameType();
+        HighScore[Key] = value;
     }
-    public static bool HigeScore(float newScore)
+    public static bool GetHighScore(float newScore)
     {
-        if (higeScore <= newScore)
+        Key = (int)GameMode.GetGameType();
+        if (HighScore[Key] <= newScore)
             return true;
 
         return false;

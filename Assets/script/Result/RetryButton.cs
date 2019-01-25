@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class RetryButton : MonoBehaviour {
 
+    private int num;
     public void ButtonPush()
     {
         Score.Reset();
-        SceneChang.Change(SceneChang.SceneState.RockPaperScissors);
+        num = (int)GameMode.GetGameType();
+        SceneChang.Change((SceneChang.SceneState)Enum.ToObject(typeof(SceneChang.SceneState), num+1));
     }
 }

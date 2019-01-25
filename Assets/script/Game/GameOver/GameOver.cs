@@ -5,6 +5,8 @@ using SceneGlobalVariables;
 
 public class GameOver : MonoBehaviour {
 
+    private float NowTime;
+    private float NextSceneTime=5.0f;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,9 +14,9 @@ public class GameOver : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        NowTime += Time.deltaTime;
         //押されたらチュートリアルに移行
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) || NowTime>NextSceneTime)
         {
             SceneChang.Change(SceneChang.SceneState.Result);
         }

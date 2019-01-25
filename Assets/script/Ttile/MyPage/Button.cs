@@ -11,7 +11,7 @@ public class Button : MonoBehaviour
         Manager.ScoreArray = PlayerPrefsX.GetFloatArray(PlayerPrefabKey.GetKey(0), 0, Manager.ScoreArray.Length);
     }
 
-    public void TestButtonPush()
+    public void CalculationButtonPush()
     {
         Manager.Key = 1;
         Manager.ScoreArray = PlayerPrefsX.GetFloatArray(PlayerPrefabKey.GetKey(1), 0, Manager.ScoreArray.Length);
@@ -28,7 +28,4 @@ public class Button : MonoBehaviour
         Manager.Key = 3;
         Manager.ScoreArray = PlayerPrefsX.GetFloatArray(PlayerPrefabKey.GetKey(3), 0, Manager.ScoreArray.Length);
     }
-
-
-
 }

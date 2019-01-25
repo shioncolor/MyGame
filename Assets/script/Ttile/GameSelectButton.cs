@@ -9,4 +9,9 @@ public class GameSelectButton : MonoBehaviour {
         GameMode.SetGameType(GameMode.GameType.RockPaperScissors);
         SceneChang.Change(SceneChang.SceneState.RockPaperScissors);
     }
+    public void Calculation()
+    {
+        GameMode.SetGameType(GameMode.GameType.Calculation);
+        SceneChang.Change(SceneChang.SceneState.Calculation);
+    }
 }

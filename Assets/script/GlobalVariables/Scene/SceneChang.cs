@@ -12,6 +12,7 @@ public class SceneChang : MonoBehaviour
     {
         Title = 0,
         RockPaperScissors,
+        Calculation,
         Result,
     }
 
@@ -29,6 +30,9 @@ public class SceneChang : MonoBehaviour
                 SceneManager.LoadScene("RockPaperScissors");
                 break;
 
+            case SceneState.Calculation:
+                SceneManager.LoadScene("Calculation");
+                break;
             case SceneState.Result:
                 SceneManager.LoadScene("Result");
                 break;

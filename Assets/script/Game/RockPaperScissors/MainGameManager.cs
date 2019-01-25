@@ -86,14 +86,12 @@ public class MainGameManager : MonoBehaviour
 
     private void Timar()
     {
-        //ゲーム中にタイトルに戻っていたら時間リセット
-
         NowTime += Time.deltaTime;
     }
 
     private void GameOver()
     {
-        SceneChang.Change(SceneChang.SceneState.Result);
+       GlobalVariables.Instance.activeManager.ChangeActive(ActiveManager.GameStatus.GameOver);
     }
 
     private IEnumerator Delay(float waitTime, Action action)

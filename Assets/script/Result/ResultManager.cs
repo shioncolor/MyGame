@@ -41,16 +41,17 @@ public class ResultManager : MonoBehaviour
         SetGameName();
         DisplayData();
 
-        if (Score.HigeScore(ScoreArray[0]))
+        if (Score.GetHighScore(ScoreArray[0]))
         {
             //スコアの保存
             PlayerPrefsX.SetFloatArray(PlayerPrefabKey.GetKey(Key), ScoreArray);
-            Score.SetHigeScore(ScoreArray[0]);
+            Score.SetHighScore(ScoreArray[0]);
         }
     }
     // Update is called once per frame
     void Update()
     {
+        //ゲージの表示
         if (ScoreArray[2] / 100 > GageBlue.fillAmount)
             GageBlue.fillAmount += 1.0f / time * Time.deltaTime;
 
@@ -64,6 +65,10 @@ public class ResultManager : MonoBehaviour
         {
             case GameMode.GameType.RockPaperScissors:
                 GameName.text = "後出しじゃんけん";
+                Key = (int)GameMode.GetGameType();
+                break;
+            case GameMode.GameType.Calculation:
+                GameName.text = "四則演算";
                 Key = (int)GameMode.GetGameType();
                 break;
         }

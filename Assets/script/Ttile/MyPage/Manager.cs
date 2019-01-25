@@ -21,7 +21,6 @@ public class Manager : MonoBehaviour
     [SerializeField]
     private Image GageRed;
 
-    private float time = 2.0f;
     private const int ScoreCount = 5;
 
     public static float[] ScoreArray = new float[ScoreCount];//読み込んだデータ
@@ -50,11 +49,10 @@ public class Manager : MonoBehaviour
             case 0:
                 text = "後出しじゃんけん";
                 GameName.text = text;
-                flag = true;
                 break;
 
             case 1:
-                text = "test";
+                text = "四則演算";
                 GameName.text = text;
                 break;
 

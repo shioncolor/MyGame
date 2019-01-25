@@ -5,7 +5,7 @@ using SocialConnector;
 using UnityEngine.UI;
 
 public class ShareButton : MonoBehaviour {
-
+    //リザルトからシェア
     public void ButtonPush()
     {
 #if UNITY_STANDALONE_WIN
@@ -14,7 +14,7 @@ public class ShareButton : MonoBehaviour {
         share();
 #endif
     }
-
+    //mypageからシェア
     public void HigeScore()
     {
 #if UNITY_STANDALONE_WIN

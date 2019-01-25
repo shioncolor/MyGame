@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameMode : MonoBehaviour {
+public class GameMode : MonoBehaviour
+{
 
-	public enum GameType
+    public enum GameType
     {
-        RockPaperScissors=0
+        RockPaperScissors = 0,
+        Calculation
     }
 
     private static GameType gameType;

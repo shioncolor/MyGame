@@ -8,7 +8,8 @@ public class GameMode : MonoBehaviour
     public enum GameType
     {
         RockPaperScissors = 0,
-        Calculation
+        Calculation,
+        BirdView
     }
 
     private static GameType gameType;

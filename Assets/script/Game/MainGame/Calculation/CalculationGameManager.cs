@@ -32,7 +32,7 @@ public class CalculationGameManager : MonoBehaviour
     private float NowTime;//経過時間
     private float AnswerTime;//問題が出てから正解するまでの時間
 
-    public static bool flag;
+    public static bool flag;//押されたときの一回だけ判定
     void Start()
     {
         flag = false;
@@ -85,11 +85,6 @@ public class CalculationGameManager : MonoBehaviour
     private void Timar()
     {
         NowTime += Time.deltaTime;
-    }
-
-    private void Display()
-    {
-
     }
 
     private void GameOver()

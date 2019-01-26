@@ -14,4 +14,9 @@ public class GameSelectButton : MonoBehaviour {
         GameMode.SetGameType(GameMode.GameType.Calculation);
         SceneChang.Change(SceneChang.SceneState.Calculation);
     }
+    public void BirdView()
+    {
+        GameMode.SetGameType(GameMode.GameType.BirdView);
+        SceneChang.Change(SceneChang.SceneState.BirdView);
+    }
 }

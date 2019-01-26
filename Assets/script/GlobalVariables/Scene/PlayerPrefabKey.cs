@@ -8,7 +8,7 @@ public class PlayerPrefabKey : MonoBehaviour
     {
            "RockPaperScissors",
             "Calculation",
-            "Test2",
+            "BirdView",
             "Test3"
      };
 

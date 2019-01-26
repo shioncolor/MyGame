@@ -14,11 +14,12 @@ public class ShareButton : MonoBehaviour {
         share();
 #endif
     }
+
     //mypageからシェア
     public void HigeScore()
     {
 #if UNITY_STANDALONE_WIN
-        string TweetText = Manager.text + "のハイスコア正解率は" + Mathf.Round(Manager.ScoreArray[3]*100).ToString() + "%です！";
+        string TweetText = Manager.text + "のハイスコア正解率は" + Mathf.Round(Manager.ScoreArray[2]).ToString() + "%です！";
         Application.OpenURL("http://twitter.com/intent/tweet?text=" + WWW.EscapeURL(TweetText));
 #elif UNITY_IPHONE
         share();

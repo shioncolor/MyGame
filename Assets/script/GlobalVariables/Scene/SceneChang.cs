@@ -13,6 +13,7 @@ public class SceneChang : MonoBehaviour
         Title = 0,
         RockPaperScissors,
         Calculation,
+        BirdView,
         Result,
     }
 
@@ -25,7 +26,6 @@ public class SceneChang : MonoBehaviour
                 SceneManager.LoadScene("Title");
                 break;
 
-
             case SceneState.RockPaperScissors:
                 SceneManager.LoadScene("RockPaperScissors");
                 break;
@@ -33,6 +33,11 @@ public class SceneChang : MonoBehaviour
             case SceneState.Calculation:
                 SceneManager.LoadScene("Calculation");
                 break;
+
+            case SceneState.BirdView:
+                SceneManager.LoadScene("BirdView");
+                break;
+
             case SceneState.Result:
                 SceneManager.LoadScene("Result");
                 break;

@@ -17,7 +17,7 @@ public class Button : MonoBehaviour
         Manager.ScoreArray = PlayerPrefsX.GetFloatArray(PlayerPrefabKey.GetKey(1), 0, Manager.ScoreArray.Length);
     }
 
-    public void TestButtonPush2()
+    public void BirdViewButtonPush()
     {
         Manager.Key = 2;
         Manager.ScoreArray = PlayerPrefsX.GetFloatArray(PlayerPrefabKey.GetKey(2), 0, Manager.ScoreArray.Length);

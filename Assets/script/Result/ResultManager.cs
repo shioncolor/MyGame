@@ -71,6 +71,10 @@ public class ResultManager : MonoBehaviour
                 GameName.text = "四則演算";
                 Key = (int)GameMode.GetGameType();
                 break;
+            case GameMode.GameType.BirdView:
+                GameName.text = "バードビュー";
+                Key = (int)GameMode.GetGameType();
+                break;
         }
     }
 

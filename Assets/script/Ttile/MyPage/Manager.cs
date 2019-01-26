@@ -57,7 +57,7 @@ public class Manager : MonoBehaviour
                 break;
 
             case 2:
-                text = "test2";
+                text = "バードビュー";
                 GameName.text = text;
                 break;
 

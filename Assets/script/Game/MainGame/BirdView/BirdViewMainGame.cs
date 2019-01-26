@@ -31,7 +31,7 @@ public class BirdViewMainGame : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-     //  Timar();
+      Timar();
 
         if (NowTime >= TimeRimit)
         {

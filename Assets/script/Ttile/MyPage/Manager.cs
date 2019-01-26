@@ -21,9 +21,8 @@ public class Manager : MonoBehaviour
     [SerializeField]
     private Image GageRed;
 
-    private const int ScoreCount = 5;
 
-    public static float[] ScoreArray = new float[ScoreCount];//読み込んだデータ
+    public static float[] ScoreArray = new float[ResultManager.ScoreCount];//読み込んだデータ
     public static int Key;//読み込んだゲームキーの番号
     public bool flag = true;//表示するデータが更新されたかどうか
     public static string text;//読み込んだゲームの種類の名前

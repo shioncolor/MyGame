@@ -23,7 +23,7 @@ public class ResultManager : MonoBehaviour
     private Image GageRed;
     private float time = 2.0f;
     
-    private const int ScoreCount = 5;
+    public const int ScoreCount = 5;
     float[] ScoreArray = new float[ScoreCount];//保存するデータ
 
     int Key;
@@ -45,7 +45,6 @@ public class ResultManager : MonoBehaviour
         {
             //スコアの保存
             PlayerPrefsX.SetFloatArray(PlayerPrefabKey.GetKey(Key), ScoreArray);
-            Score.SetHighScore(ScoreArray[0]);
         }
     }
     // Update is called once per frame

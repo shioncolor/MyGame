@@ -8,7 +8,8 @@ public class GameMode : MonoBehaviour
     public enum GameType
     {
         RockPaperScissors = 0,
-        Calculation
+        Calculation,
+        BirdView
     }
 
     private static GameType gameType;
@@ -21,5 +22,22 @@ public class GameMode : MonoBehaviour
     public static GameType GetGameType()
     {
         return gameType;
+    }
+
+    private static string[] GameName=
+    {
+        "後出しじゃんけん",
+        "四則演算",
+        "バードビュー"
+    };
+
+    public static string GetGameName(int num)
+    {
+        return GameName[num];
+    }
+
+    public static string GetGameName()
+    {
+        return GameName[(int)gameType];
     }
 }

@@ -9,7 +9,7 @@ public class Score
 
     void Start()
     {
-        
+       
     }
 
     //正解回数
@@ -78,16 +78,13 @@ public class Score
     }
 
     private static  int Key;//ゲームモードのint
-    private static float[] HighScore = new float[Enum.GetNames(typeof(GameMode.GameType)).Length];
-    public static void SetHighScore(float value)
-    {
-        Key = (int)GameMode.GetGameType();
-        HighScore[Key] = value;
-    }
+    private static float HighScore;
     public static bool GetHighScore(float newScore)
     {
         Key = (int)GameMode.GetGameType();
-        if (HighScore[Key] <= newScore)
+        var myCoords = PlayerPrefsX.GetFloatArray(PlayerPrefabKey.GetKey(Key), 0.0f, ResultManager.ScoreCount);
+        HighScore = myCoords[0];
+        if (HighScore <= newScore)
             return true;
 
         return false;

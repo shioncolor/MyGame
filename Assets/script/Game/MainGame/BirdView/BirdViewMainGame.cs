@@ -1,23 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Rendering;
 using SceneGlobalVariables;
-using UnityEngine;
 using System;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(Question))]
-public class CalculationGameManager : MonoBehaviour
-{
-    public Question question { get { return this._Question ?? (this._Question = GetComponent<Question>()); } }
-    Question _Question;
+[RequireComponent(typeof(BirdViewSelectColor))]
+public class BirdViewMainGame : MonoBehaviour {
 
-    [SerializeField]
-    private Text value;
-    [SerializeField]
-    private Text num;
-    [SerializeField]
-    private Text Answer;
+    public BirdViewSelectColor _Color { get { return this._BirdViewSelectColor ?? (this._BirdViewSelectColor = GetComponent<BirdViewSelectColor>()); } }
+    BirdViewSelectColor _BirdViewSelectColor;
 
     private enum GameMode
     {
@@ -32,64 +24,52 @@ public class CalculationGameManager : MonoBehaviour
     private float NowTime;//経過時間
     private float AnswerTime;//問題が出てから正解するまでの時間
 
-    public static bool flag;
+    public static bool flag;//押されたときの一回だけ判定
     void Start()
     {
-        flag = false;
-        NowTime = 0.0f;
-        AnswerTime = 0.0f;
         gameMode = GameMode.enemySelect;
     }
-
     // Update is called once per frame
-    void Update()
-    {
-        Timar();
+    void Update () {
+      Timar();
 
         if (NowTime >= TimeRimit)
         {
             GameOver();
         }
 
-        if (gameMode == GameMode.play && flag)
+        if(gameMode==GameMode.play && flag)
         {
-            if (question.CheckAnswer())
+            if (_Color.CheckAnswer())
             {
                 Score.SetAnswer(1.0f);
                 Score.SetAnswerTime(NowTime - AnswerTime);
                 AnswerTime = NowTime;
+                _Color.ContinuousAnswer=1;
                 gameMode = GameMode.enemySelect;
             }
             else
             {
+                _Color.ContinuousAnswer = 0;
                 Score.SetNotAnswer(1.0f);
             }
             flag = false;
         }
         else if (gameMode == GameMode.enemySelect)
         {
-            question.CreateQuestion();
+            _Color.ChangeColor();
             gameMode = GameMode.ready;
 
-            value.text = question.value.ToString();
-            num.text = question.num.ToString();
-            Answer.text = question.Answer.ToString();
             StartCoroutine(Delay(0.1f, () =>
             {
                 gameMode = GameMode.play;
             }));
         }
-
     }
 
     private void Timar()
     {
         NowTime += Time.deltaTime;
-    }
-
-    private void Display()
-    {
-
     }
 
     private void GameOver()

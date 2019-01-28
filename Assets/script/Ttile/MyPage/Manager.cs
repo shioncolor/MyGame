@@ -21,11 +21,9 @@ public class Manager : MonoBehaviour
     [SerializeField]
     private Image GageRed;
 
-    private const int ScoreCount = 5;
 
-    public static float[] ScoreArray = new float[ScoreCount];//読み込んだデータ
+    public static float[] ScoreArray = new float[ResultManager.ScoreCount];//読み込んだデータ
     public static int Key;//読み込んだゲームキーの番号
-    public bool flag = true;//表示するデータが更新されたかどうか
     public static string text;//読み込んだゲームの種類の名前
 
     void Start()
@@ -43,39 +41,7 @@ public class Manager : MonoBehaviour
 
     void Update()
     {
-
-        switch (Key)
-        {
-            case 0:
-                text = "後出しじゃんけん";
-                GameName.text = text;
-                break;
-
-            case 1:
-                text = "四則演算";
-                GameName.text = text;
-                break;
-
-            case 2:
-                text = "test2";
-                GameName.text = text;
-                break;
-
-            case 3:
-                text = "test3";
-                GameName.text = text;
-                break;
-
-            case 4:
-                text = "test4";
-                GameName.text = text;
-                break;
-
-            case 5:
-                text = "test5";
-                GameName.text = text;
-                break;
-        }
+        GameName.text = GameMode.GetGameName(Key);
         answer.text = ScoreArray[0].ToString();
         Notanswer.text = ScoreArray[1].ToString();
         Answerrate.text = ScoreArray[2].ToString() + "%";

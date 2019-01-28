@@ -23,10 +23,8 @@ public class ResultManager : MonoBehaviour
     private Image GageRed;
     private float time = 2.0f;
     
-    private const int ScoreCount = 5;
+    public const int ScoreCount = 5;
     float[] ScoreArray = new float[ScoreCount];//保存するデータ
-
-    int Key;
 
     // Use this for initialization
     void Start()
@@ -44,8 +42,7 @@ public class ResultManager : MonoBehaviour
         if (Score.GetHighScore(ScoreArray[0]))
         {
             //スコアの保存
-            PlayerPrefsX.SetFloatArray(PlayerPrefabKey.GetKey(Key), ScoreArray);
-            Score.SetHighScore(ScoreArray[0]);
+            PlayerPrefsX.SetFloatArray(PlayerPrefabKey.GetKey((int)GameMode.GetGameType()), ScoreArray);
         }
     }
     // Update is called once per frame
@@ -61,17 +58,7 @@ public class ResultManager : MonoBehaviour
 
     private void SetGameName()
     {
-        switch (GameMode.GetGameType())
-        {
-            case GameMode.GameType.RockPaperScissors:
-                GameName.text = "後出しじゃんけん";
-                Key = (int)GameMode.GetGameType();
-                break;
-            case GameMode.GameType.Calculation:
-                GameName.text = "四則演算";
-                Key = (int)GameMode.GetGameType();
-                break;
-        }
+        GameName.text = GameMode.GetGameName();
     }
 
     private void DisplayData()

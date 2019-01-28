@@ -23,4 +23,21 @@ public class GameMode : MonoBehaviour
     {
         return gameType;
     }
+
+    private static string[] GameName=
+    {
+        "後出しじゃんけん",
+        "四則演算",
+        "バードビュー"
+    };
+
+    public static string GetGameName(int num)
+    {
+        return GameName[num];
+    }
+
+    public static string GetGameName()
+    {
+        return GameName[(int)gameType];
+    }
 }

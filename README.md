@@ -27,10 +27,3 @@ Script\Title\GameSelectButton
 
 Script\Title\MyPage\Button
 mypageで表示するゲームの追加
-
-Script\Title\MyPage\Manager
-switchの中のtextを編集　Keyとおなじ番号のところを編集
-
-Script\Result\ResultManager
-SetGameNameに新しいゲームの情報を追加
-

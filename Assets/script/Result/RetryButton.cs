@@ -9,6 +9,6 @@ public class RetryButton : MonoBehaviour {
     {
         Score.Reset();
         num = (int)GameMode.GetGameType();
-        SceneChang.Change((SceneChang.SceneState)Enum.ToObject(typeof(SceneChang.SceneState), num+1));
+        SceneChang.Change((SceneChang.SceneState)Enum.ToObject(typeof(SceneChang.SceneState), num+2));
     }
 }

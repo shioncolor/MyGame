@@ -50,6 +50,7 @@ public class BirdViewMainGame : MonoBehaviour {
             }
             else
             {
+                AudioManager.PlayNotCorrect();
                 _Color.ContinuousAnswer = 0;
                 Score.SetNotAnswer(1.0f);
             }

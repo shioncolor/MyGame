@@ -13,11 +13,14 @@ public class MenuButton : MonoBehaviour
     {
         GameSelect.SetActive(true);
         MyPage.SetActive(false);
+        AudioManager.PlayClickSE();
     }
 
     public void MyPageButtonPush()
     {
         GameSelect.SetActive(false);
         MyPage.SetActive(true);
+
+        AudioManager.PlayClickSE();
     }
 }

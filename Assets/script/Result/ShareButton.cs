@@ -34,7 +34,7 @@ public class ShareButton : MonoBehaviour {
         Application.CaptureScreenshot(ImagName);
         yield return new WaitForEndOfFrame();
 
-        string TweetText = "正解率" + Score.GetAnswerRate().ToString() + "%でした！";
+        string TweetText = GameMode.GetGameName()+"の正解率" + Score.GetAnswerRate().ToString() + "%でした！";
         string URL = "https://twitter.com/";
 
         yield return new WaitForSeconds(1);

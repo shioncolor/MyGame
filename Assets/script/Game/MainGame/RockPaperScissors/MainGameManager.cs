@@ -64,6 +64,7 @@ public class MainGameManager : MonoBehaviour
                 }
                 else
                 {
+                    AudioManager.PlayNotCorrect();
                     enemyMove.Flash();
                     Score.SetNotAnswer(1.0f);
                 }

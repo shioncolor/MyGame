@@ -62,6 +62,7 @@ public class CalculationGameManager : MonoBehaviour
             }
             else
             {
+                AudioManager.PlayNotCorrect();
                 Score.SetNotAnswer(1.0f);
             }
             flag = false;

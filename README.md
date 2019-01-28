@@ -2,6 +2,7 @@
 Unity 5.6.5f1
 
 asset
+
 social-connector
 https://github.com/anchan828/social-connector
 
@@ -14,16 +15,21 @@ http://wiki.unity3d.com/index.php/ArrayPrefs2
 Gameを追加したらやること
 
 Script\GlobalVariables\Scene\GameMode
+
 GameTypeにゲームの名前を追加
 
 Script\GlobalVariables\Scene\PlayerPrefabKey
+
 SeveScoreKeyの中にゲームの名前を追加
 
 Script\GlobalVariables\Scene\SceneChang
+
 ゲームシーンに飛ぶように新しく追加
 
 Script\Title\GameSelectButton
+
 ゲームシーンに飛ぶように新しく追加
 
 Script\Title\MyPage\Button
+
 mypageで表示するゲームの追加

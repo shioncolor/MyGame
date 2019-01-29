@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPrefabKey : MonoBehaviour
 {
-    private static string[] SeveScoreKey =
+    private static string[] SaveScoreKey =
     {
            "RockPaperScissors",
             "Calculation",
@@ -14,7 +14,7 @@ public class PlayerPrefabKey : MonoBehaviour
 
     public static string GetKey(int num)
     {
-        return SeveScoreKey[num];
+        return SaveScoreKey[num];
     }
 }
 

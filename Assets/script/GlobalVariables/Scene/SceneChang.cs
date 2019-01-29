@@ -10,7 +10,8 @@ public class SceneChang : MonoBehaviour
 
     public enum SceneState
     {
-        Title = 0,
+        Start=0,
+        Title,
         RockPaperScissors,
         Calculation,
         BirdView,
@@ -20,6 +21,7 @@ public class SceneChang : MonoBehaviour
 
     public static void Change(SceneState sceneState)
     {
+        AudioManager.PlayClickSE();
         switch (sceneState)
         {
             case SceneState.Title:

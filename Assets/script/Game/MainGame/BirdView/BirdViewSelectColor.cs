@@ -4,7 +4,6 @@ using UnityEngine.Rendering;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
-using UnityEditor;
 using System.Linq;
 
 public class BirdViewSelectColor : MonoBehaviour

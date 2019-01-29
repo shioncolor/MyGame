@@ -39,11 +39,7 @@ public class ResultManager : MonoBehaviour
         SetGameName();
         DisplayData();
 
-        if (Score.GetHighScore(ScoreArray[0]))
-        {
-            //スコアの保存
-            PlayerPrefsX.SetFloatArray(PlayerPrefabKey.GetKey((int)GameMode.GetGameType()), ScoreArray);
-        }
+        Score.HighScore();
     }
     // Update is called once per frame
     void Update()

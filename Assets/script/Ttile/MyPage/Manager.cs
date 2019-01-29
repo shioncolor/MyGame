@@ -22,33 +22,30 @@ public class Manager : MonoBehaviour
     private Image GageRed;
 
 
-    public static float[] ScoreArray = new float[ResultManager.ScoreCount];//読み込んだデータ
+    public static SaveData saveData;//読み込んだデータ
     public static int Key;//読み込んだゲームキーの番号
     public static string text;//読み込んだゲームの種類の名前
 
     void Start()
     {
         Key = 0;
-
-        ScoreArray = PlayerPrefsX.GetFloatArray(PlayerPrefabKey.GetKey(0), 0, ScoreArray.Length);
-        answer.text = ScoreArray[0].ToString();
-        Notanswer.text = ScoreArray[1].ToString();
-        Answerrate.text = ScoreArray[2].ToString() + "%";
-        Averagetime.text = ScoreArray[3].ToString("f2") + "s";
-        GageBlue.fillAmount = ScoreArray[2] / 100;
-        GageRed.fillAmount = ScoreArray[4] / 100;
+        saveData = MyPlayerPrefab.GetObject<SaveData>(PlayerPrefabKey.GetKey(0));
+        Draw();
     }
 
     void Update()
     {
+       Draw();
+    }
+
+    private void Draw()
+    {
         GameName.text = GameMode.GetGameName(Key);
-        answer.text = ScoreArray[0].ToString();
-        Notanswer.text = ScoreArray[1].ToString();
-        Answerrate.text = ScoreArray[2].ToString() + "%";
-        Averagetime.text = ScoreArray[3].ToString("f2") + "s";
-
-        GageBlue.fillAmount = ScoreArray[2] / 100;
-        GageRed.fillAmount = ScoreArray[4] / 100;
-
+        answer.text = saveData.Answer.ToString();
+        Notanswer.text = saveData.NotAnswer.ToString();
+        Answerrate.text = saveData.GetAnswerRate().ToString() + "%";
+        Averagetime.text = saveData.AnswerTime.ToString("f2") + "s";
+        GageBlue.fillAmount = saveData.GetAnswerRate() / 100;
+        GageRed.fillAmount = saveData.GetNotAnswerRate() / 100;
     }
 }

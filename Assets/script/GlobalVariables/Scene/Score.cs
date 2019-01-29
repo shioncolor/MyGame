@@ -4,14 +4,10 @@ using UnityEngine.Rendering;
 using UnityEngine;
 using System;
 
+
+[System.Serializable]
 public class Score
-{ 
-
-    void Start()
-    {
-       
-    }
-
+{
     //正解回数
     private static float Answer;
     public static void SetAnswer(float value)
@@ -24,7 +20,6 @@ public class Score
 
     }
 
-
     //不正解回数
     private static float NotAnswer;
     public static void SetNotAnswer(float value)
@@ -34,27 +29,29 @@ public class Score
     public static float GetNotAnswer()
     {
         return NotAnswer;
-
     }
 
     //正解率
+    private static float AnswerRate;
     public static float GetAnswerRate()
     {
-        if (Answer / (Answer + NotAnswer) * 100 > -1)
+        AnswerRate = Answer / (Answer + NotAnswer) * 100;
+        if (AnswerRate > 0.0f)
         {
-            return Mathf.Round(Answer / (Answer + NotAnswer) * 100);
+            return Mathf.Round(AnswerRate);
         }
 
         return 0;
     }
 
     //不正解率
+    private static float NotAnswerRate;
     public static float GetNotAnswerRate()
     {
-        if (NotAnswer / (Answer + NotAnswer) * 100 > -1)
+        NotAnswerRate = NotAnswer / (Answer + NotAnswer) * 100;
+        if (NotAnswerRate > 0.0f)
         {
-
-            return Mathf.Round(NotAnswer / (Answer + NotAnswer) * 100);
+            return Mathf.Round(NotAnswerRate);
         }
         return 0;
     }
@@ -63,37 +60,44 @@ public class Score
     private static float AnswerTime;
     public static void SetAnswerTime(float value)
     {
-        AnswerTime = value; 
+        AnswerTime = value;
     }
 
     //平均回答時間
+    private static float AverageTime;
     public static float GetAverageTime()
     {
-        if (AnswerTime / Answer > 0.01)
+        AverageTime = AnswerTime / Answer;
+        if (AverageTime > 0.0f)
         {
-            return AnswerTime / Answer;
+            return AverageTime;
         }
-
-        return 0; 
+        return 0;
+    }
+    
+    public static void HighScore()
+    {
+       var Key = PlayerPrefabKey.GetKey((int)GameMode.GetGameType());
+        var newScore = MyPlayerPrefab.GetObject<SaveData>(Key);
+        if (newScore.Answer <= Answer)
+            Save();
     }
 
-    private static  int Key;//ゲームモードのint
-    private static float HighScore;
-    public static bool GetHighScore(float newScore)
+    private static SaveData saveData = new SaveData();
+    private static void Save()
     {
-        Key = (int)GameMode.GetGameType();
-        var myCoords = PlayerPrefsX.GetFloatArray(PlayerPrefabKey.GetKey(Key), 0.0f, ResultManager.ScoreCount);
-        HighScore = myCoords[0];
-        if (HighScore <= newScore)
-            return true;
-
-        return false;
+        var Key = PlayerPrefabKey.GetKey((int)GameMode.GetGameType());
+        saveData.Answer = Answer;
+        saveData.NotAnswer = NotAnswer;
+        saveData.AnswerTime = AnswerTime;
+        MyPlayerPrefab.SetObject(Key, saveData);
+        PlayerPrefs.Save();
     }
 
     public static void Reset()
     {
-        Answer = 0.0f;
-        NotAnswer = 0.0f;
-        AnswerTime = 0.0f;
+        Answer = 0;
+        NotAnswer = 0;
+        AnswerTime = 0;
     }
 }

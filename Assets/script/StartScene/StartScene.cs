@@ -11,9 +11,19 @@ public class StartScene : MonoBehaviour
     private Ease EaseType;
     [SerializeField]
     private float Seconds;
-    // Use this for initialization
+
+    SaveData saveData = new SaveData
+    {
+        Answer = 0,
+        NotAnswer = 0,
+        AnswerTime = 0
+    };
+
     void Start()
     {
+        MyPlayerPrefab.SetObject<SaveData>("initial", saveData);
+       var aa= MyPlayerPrefab.GetObject<SaveData>("initial");
+        Debug.Log(aa.Answer);
         canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.DOFade(0.0f, Seconds).SetEase(EaseType).SetLoops(-1, LoopType.Yoyo);
     }
